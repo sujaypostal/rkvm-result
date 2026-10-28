@@ -1,0 +1,15 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RKVM Result</title><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0f766e"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-title" content="RKVM Result">
+<script>
+/* ⚙ শুধু এই একটা লাইন বদলাবেন: Apps Script → Deploy → Manage deployments-এর Web app URL (…/exec) */
+window.APP_CFG={
+  url:'PASTE_YOUR_EXEC_URL_HERE',
+  key:'result',name:'RKVM Result System',sw:'sw.js',
+  tokenVars:['SESSION_TOKEN'],loginFns:['loginUser'],logoutFns:['logoutUser'],ctxExpr:'',ctxFn:'',offlineRead:[],
+  queue:['saveMarks','saveAttendanceClass','saveStudentInfo','saveMadhyamikData','saveHsData']
+};
+</script>
+<script src="shim.js"></script>
+</head><body style="font-family:Arial,sans-serif;text-align:center;background:#f6f3ef;color:#333">
+<div id="offlBoot" style="margin-top:22vh"><div style="font-size:42px">⏳</div><h2>RKVM Result System</h2><p>খুলছে…</p></div>
+</body></html>
