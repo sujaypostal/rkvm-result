@@ -95,7 +95,11 @@ window.google={script:{
   get run(){return runner({});},
   url:{getLocation:function(cb){var p={};Object.keys(params).forEach(function(k){p[k]=[params[k]];});cb&&cb({parameter:params,parameters:p,hash:(location.hash||'').replace(/^#/,'')});}},
   host:{close:function(){},setHeight:function(){},setWidth:function(){},editor:{focus:function(){}},origin:location.origin},
-  history:{push:function(){},replace:function(){},setChangeHandler:function(){}}
+  history:{
+    push:function(st,pr,h){try{history.pushState({__gs:st},'',location.pathname+location.search+(h?'#'+h:''));}catch(e){}},
+    replace:function(st,pr,h){try{history.replaceState({__gs:st},'',location.pathname+location.search+(h?'#'+h:''));}catch(e){}},
+    setChangeHandler:function(fn){window.addEventListener('popstate',function(e){try{fn({state:(e.state&&e.state.__gs)||null,location:{parameter:params,hash:(location.hash||'').replace(/^#/,'')}});}catch(x){}});}
+  }
 }};
 
 /* ---- ছোট সংকেত (নিচে বাঁদিকে) ---- */
